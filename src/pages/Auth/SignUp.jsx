@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react';
-import animation from '../../assets/Sign up/signUpAnimation.json';
+import animation from '../../assets/signUp/signUpAnimation.json';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 

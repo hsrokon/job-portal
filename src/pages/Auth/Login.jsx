@@ -1,28 +1,59 @@
-import React from 'react';
+import Lottie from 'lottie-react';
+import login from '../../assets/login/Login.json';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
-const Login = () => {
+
+const LogIn = () => {
+
+    const { loginUser } = useContext(AuthContext);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+    
+        loginUser(email, password)
+        .then(credential => {
+            console.log(credential.user); 
+        })
+        
+    }
+
+
     return (
-        <div className='w-7/12 mx-auto'>
+        <div className='lg:w-7/12 mx-auto'>
             <div className="hero min-h-screen">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
-                    <p className="py-6">
-                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                        quasi. In deleniti eaque aut repudiandae et a id nisi.
-                    </p>
+                    <h1 className="text-5xl font-bold">Log In now!</h1>
+                    <Lottie animationData={login}/>
                     </div>
                     <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                    <div className="card-body">
+                    <form
+                    onSubmit={handleSubmit}
+                    className="card-body">
                         <fieldset className="fieldset">
                         <label className="label">Email</label>
-                        <input type="email" className="input" placeholder="Email" />
+                        <input 
+                        type="email" 
+                        name='email'
+                        className="input" 
+                        placeholder="Email" />
+
                         <label className="label">Password</label>
-                        <input type="password" className="input" placeholder="Password" />
+                        <input 
+                        type="password" 
+                        name='password'
+                        className="input" 
+                        placeholder="Password" />
                         <div><a className="link link-hover">Forgot password?</a></div>
-                        <button className="btn btn-neutral mt-4">Login</button>
+                        <button className="btn btn-neutral mt-4">Log In</button>
                         </fieldset>
-                    </div>
+                    </form>
                     </div>
                 </div>
             </div>
@@ -30,4 +61,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LogIn;
