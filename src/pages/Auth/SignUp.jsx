@@ -2,6 +2,7 @@ import Lottie from 'lottie-react';
 import animation from '../../assets/signUp/signUpAnimation.json';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import GoogleLogin from './GoogleLogin';
 
 
 const SignUp = () => {
@@ -57,8 +58,11 @@ const SignUp = () => {
                         className="input" 
                         placeholder="Password" />
                         <div><a className="link link-hover">Forgot password?</a></div>
-                        <button className="btn btn-neutral mt-4">Sign Up</button>
+                        <button 
+                        type='submit'
+                        className="btn btn-neutral mt-4">Sign Up</button>
                         </fieldset>
+                        <GoogleLogin></GoogleLogin>
                     </form>
                     </div>
                 </div>

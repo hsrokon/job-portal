@@ -2,6 +2,7 @@ import Lottie from 'lottie-react';
 import login from '../../assets/login/Login.json';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
+import GoogleLogin from './GoogleLogin';
 
 
 const LogIn = () => {
@@ -51,8 +52,11 @@ const LogIn = () => {
                         className="input" 
                         placeholder="Password" />
                         <div><a className="link link-hover">Forgot password?</a></div>
-                        <button className="btn btn-neutral mt-4">Log In</button>
+                        <button 
+                        type='submit'
+                        className="btn btn-neutral mt-4">Log In</button>
                         </fieldset>
+                        <GoogleLogin></GoogleLogin>
                     </form>
                     </div>
                 </div>
