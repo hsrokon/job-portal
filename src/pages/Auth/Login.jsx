@@ -3,11 +3,16 @@ import login from '../../assets/login/Login.json';
 import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import GoogleLogin from './GoogleLogin';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const LogIn = () => {
 
     const { loginUser } = useContext(AuthContext);
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const send = location.state || '/';
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -20,7 +25,9 @@ const LogIn = () => {
         loginUser(email, password)
         .then(credential => {
             console.log(credential.user); 
+            navigate(send);
         })
+
         
     }
 
