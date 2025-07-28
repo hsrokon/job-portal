@@ -1,10 +1,11 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const JobDetails = () => {
   const job = useLoaderData();
 
   const {
+    _id,
     title,
     location,
     jobType,
@@ -82,9 +83,11 @@ const JobDetails = () => {
 
       {/* CTA Button */}
       <div className="mt-6">
-        <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-md font-medium">
-          Apply Now
-        </button>
+        <Link to={`/apply/job/${_id}`}>
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-md font-medium cursor-pointer">
+            Apply Now
+          </button>
+        </Link>
       </div>
     </div>
   );

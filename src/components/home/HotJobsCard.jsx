@@ -72,8 +72,8 @@ const HotJobsCard = ({job}) => {
             {/* CTA */}
         <div className="px-6 py-4">
             <Link to={`/job/${_id}`}>
-                <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium">
-                Apply Now
+                <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium cursor-pointer">
+                Apply/Details
                 </button>
             </Link>
         </div>
