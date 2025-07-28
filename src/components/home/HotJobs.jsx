@@ -13,10 +13,13 @@ const HotJobs = () => {
 
     return (
         <div className='-mt-44'>
-            <h1 className='text-3xl text-indigo-600 text-center font-bold'>See the lates hot jobs.</h1>
-            {
+            <h1 className='text-3xl text-indigo-600 text-center font-bold my-4'>See the lates hot jobs.</h1>
+            <div className='grid grid-cols-3 gap-4'>
+                {
                 jobs.map(job => <HotJobsCard key={job._id} job={job} />)
-            }
+                }
+            </div>
+            
         </div>
     );
 };
