@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     {
         path: '/apply/job/:id',
         element: <PrivateRoute><Apply /></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/jobs/apply/${params.id}`)
+        // loader: ({params}) => fetch(`http://localhost:5000/jobs/apply/${params.id}`)
     },
     {
         path: '/auth/logIn',
