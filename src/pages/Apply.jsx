@@ -1,11 +1,12 @@
 import React from 'react';
 import Context from '../hooks/Context';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 
 const Apply = () => {
 
     const { id } = useParams();
     const { user } = Context();
+    const navigate = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -35,7 +36,8 @@ const Apply = () => {
         .then(res => res.json())
         .then(data => {
             if (data.insertedId) {
-                alert('Job applied successfully')
+                alert('Job applied successfully');
+                navigate('/myApplications')
             }
         })
 
