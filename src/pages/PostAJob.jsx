@@ -41,6 +41,12 @@ const PostAJob = () => {
                     <option>Management</option>
                 </select>
 
+                <label className="label">Application Deadline</label>
+                <input 
+                type="date" 
+                name=""
+                className='input' />
+
                 <label className="label">Provide Salary Range</label>
                 <div className='flex gap-2'>
                     <input 
@@ -57,13 +63,44 @@ const PostAJob = () => {
                     defaultValue="Currency" 
                     className="select select-primary w-full">
                         <option disabled={true}>Currency</option>
-                        <option>Engineering</option>
-                        <option>Marketing</option>
-                        <option>Finance</option>
-                        <option>Teaching</option>
-                        <option>Management</option>
+                        <option>BDT</option>
+                        <option>USD</option>
+                        <option>EURO</option>
                     </select>
                 </div>
+
+                <fieldset className="fieldset">
+                    <legend className="fieldset-legend">Job Description</legend>
+                    <textarea 
+                    className="textarea h-24 w-full" 
+                    placeholder="Describe..."></textarea>
+                </fieldset>
+
+                <label className="label">Company Name:</label>
+                <input 
+                type="Text" 
+                className="input w-full" 
+                placeholder="Company name" />
+
+                <label className="label">Company Logo URL:</label>
+                <input 
+                type="url" 
+                className="input w-full" 
+                placeholder="Company Logo URL" />
+
+                <fieldset className="fieldset">
+                    <legend className="fieldset-legend">Job Requirements</legend>
+                    <textarea 
+                    className="textarea h-24 w-full" 
+                    placeholder="Enter one Requirements / line"></textarea>
+                </fieldset>
+                
+                <fieldset className="fieldset">
+                    <legend className="fieldset-legend">Job Responsibilities</legend>
+                    <textarea 
+                    className="textarea h-24 w-full" 
+                    placeholder="Enter one Responsibilities / line"></textarea>
+                </fieldset>
                 
 
                 <button className="btn btn-neutral mt-4">Post</button>
