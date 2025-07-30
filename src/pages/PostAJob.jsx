@@ -1,6 +1,9 @@
 import React from 'react';
+import Context from '../hooks/Context';
 
 const PostAJob = () => {
+
+    const { user } = Context();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -8,8 +11,24 @@ const PostAJob = () => {
         const formData = new FormData(e.target);
         const initialData = Object.fromEntries(formData.entries());
         const { min, max, currency, ...newJob } = initialData;//separating min, max,currency and making a new object 'newJob'
-        newJob.salaryRange = { min, max, currency }
+        newJob.salaryRange = { min, max, currency };//using short hand and creating a new object at newJob
+        newJob.requirements = newJob.requirements.split('\n');
+        newJob.responsibilities = newJob.responsibilities.split('\n');
         console.log(newJob);
+
+        fetch('http://localhost:5000/jobs', {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newJob)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            alert('job posted successfully!')
+        }
+        )
         
     }
 
@@ -132,6 +151,7 @@ const PostAJob = () => {
                 <label className="label">HR Name</label>
                 <input 
                 type="Text" 
+                defaultValue={user.displayName}
                 name='hr_name'
                 className="input w-full" 
                 placeholder="HR Name" />
@@ -139,6 +159,7 @@ const PostAJob = () => {
                 <label className="label">HR Email</label>
                 <input 
                 type="Text" 
+                defaultValue={user.email}
                 name='hr_email'
                 className="input w-full" 
                 placeholder="HR Email" />
