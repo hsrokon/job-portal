@@ -19,30 +19,30 @@ const router = createBrowserRouter([
             {
                 path:'/',
                 element: <Home />
-            }
+            },
+            {
+                path: '/job/:id',
+                element: <PrivateRoute><JobDetails /></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+            },
+            {
+                path: '/apply/job/:id',
+                element: <PrivateRoute><Apply /></PrivateRoute>,
+                // loader: ({params}) => fetch(`http://localhost:5000/jobs/apply/${params.id}`)
+            },
+            {
+                path: '/myApplications',
+                element: <PrivateRoute><MyApplications /></PrivateRoute>
+            },
+            {
+                path: '/postAJob',
+                element: <PostAJob />
+            },
+            {
+                path: '/myPostedJobs',
+                element: <PrivateRoute><MyPostedJobs /></PrivateRoute>
+            },
         ]
-    },
-    {
-        path: '/job/:id',
-        element: <PrivateRoute><JobDetails /></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
-    },
-    {
-        path: '/apply/job/:id',
-        element: <PrivateRoute><Apply /></PrivateRoute>,
-        // loader: ({params}) => fetch(`http://localhost:5000/jobs/apply/${params.id}`)
-    },
-    {
-        path: '/myApplications',
-        element: <PrivateRoute><MyApplications /></PrivateRoute>
-    },
-    {
-        path: '/postAJob',
-        element: <PostAJob />
-    },
-    {
-        path: '/myPostedJobs',
-        element: <PrivateRoute><MyPostedJobs /></PrivateRoute>
     },
     {
         path: '/auth/logIn',

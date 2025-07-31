@@ -11,14 +11,41 @@ const MyPostedJobs = () => {
         .then(res => res.json())
         .then(data => setJobs(data))
     },[user])
-    console.log(jobs);
-    
 
 
 
     return (
         <div className='my-10'>
             <h1 className='text-3xl font-semibold text-center'>All your posted jobs are here! {jobs.length}</h1>
+
+            <div className="overflow-x-auto w-10/12 mx-auto">
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Deadline</th>
+                        <th>Total Applied</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {/* row */}
+                    {
+                        jobs.map((job, idx) => 
+                            <tr key={job._id} className="hover:bg-base-300">
+                                <th>{idx+1}</th>
+                                <td>{job.title}</td>
+                                <td>{job.description}</td>
+                                <td>{job.applicationDeadline}</td>
+                                <td>{job.applicationCount}</td>
+                            </tr>
+                        )
+                    }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
