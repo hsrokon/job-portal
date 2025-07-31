@@ -1,9 +1,11 @@
 import React from 'react';
 import Context from '../hooks/Context';
+import { useNavigate } from 'react-router-dom';
 
 const PostAJob = () => {
 
     const { user } = Context();
+    const navigate = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -26,7 +28,8 @@ const PostAJob = () => {
         .then(res => res.json())
         .then(data => {
             console.log(data)
-            alert('job posted successfully!')
+            alert('job posted successfully!');
+            navigate('/myPostedJobs');
         }
         )
         
