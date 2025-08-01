@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import GoogleLogin from './GoogleLogin';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 const LogIn = () => {
@@ -26,6 +27,12 @@ const LogIn = () => {
         .then(credential => {
             console.log(credential.user); 
             navigate(send);
+
+            const user = { email : email };
+            axios.post('http://localhost:5000/jwt', user)
+            .then(data => console.log(data)
+            )
+
         })
 
         
