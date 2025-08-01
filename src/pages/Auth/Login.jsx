@@ -30,9 +30,8 @@ const LogIn = () => {
 
             const user = { email : email };
              
-            axios.post('http://localhost:5000/jwt', user, { withCredentials: true }) // withCredentials: true - this says > accept cookie from server
+            axios.post('http://localhost:5000/jwt', user, { withCredentials: true }) // withCredentials: true - this allows to sent cookie/token to server and allows to set cookie also while requesting '/jwt' endpoint
             .then(res => console.log(res.data))
-            
         })
 
         

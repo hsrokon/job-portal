@@ -14,8 +14,8 @@ const MyApplications = () => {
         // .then(res => res.json())
         // .then(data => setApplications(data))
 
-        axios.get(`http://localhost:5000/jobs/apply?email=${user.email}`, { withCredentials: true })//withCredentials: true > sending credential/token back to server to verify
-        .then(res => setApplications(res.data))
+        axios.get(`http://localhost:5000/jobs/apply?email=${user.email}`, { withCredentials : true })//withCredentials: true > sending credential/token back to server to verify is req valid
+        .then( res => setApplications(res.data) )
     },[user.email])
  
 
