@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Context from "../hooks/Context";
+import axios from "axios";
 
 
 
@@ -9,9 +10,12 @@ const MyApplications = () => {
     
     const [ application, setApplications ] = useState([])
     useEffect(()=> {
-        fetch(`http://localhost:5000/jobs/apply?email=${user.email}`)
-        .then(res => res.json())
-        .then(data => setApplications(data))
+        // fetch(`http://localhost:5000/jobs/apply?email=${user.email}`)
+        // .then(res => res.json())
+        // .then(data => setApplications(data))
+
+        axios.get(`http://localhost:5000/jobs/apply?email=${user.email}`, { withCredentials: true })//withCredentials: true > sending credential/token back to server to verify
+        .then(res => setApplications(res.data))
     },[user.email])
  
 
