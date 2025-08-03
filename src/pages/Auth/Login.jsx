@@ -30,7 +30,7 @@ const LogIn = () => {
 
             const user = { email : email };
              
-            axios.post('http://localhost:5000/jwt', user, { withCredentials: true }) // withCredentials: true - this allows to sent cookie/token to server and allows to set cookie also while requesting '/jwt' endpoint
+            axios.post('http://localhost:5000/jwt', user, { withCredentials: true }) // hitting this ['http://localhost:5000/jwt'] api creates a token and with "withCredentials: true" - allows to receive and set token in cookies
             .then(res => console.log(res.data))
         })
 
